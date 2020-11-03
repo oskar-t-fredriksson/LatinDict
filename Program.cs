@@ -55,7 +55,7 @@ namespace LatinDirec
 
                     }
                 }
-            }//done
+            }//done and done
             while (command != "sluta");
         }
     }
