@@ -38,7 +38,7 @@ namespace LatinDirec
                         {
                             Console.WriteLine($"{word[0]} betyder {word[1]} på svenska");
                         }
-                        
+
                     }
                 }
                 else if (command == "latinska")
@@ -54,6 +54,28 @@ namespace LatinDirec
                         }
 
                     }
+                }
+                else if (command == "sort")
+                {
+                    for (int j = 0; j < dict.Length; j++)
+                    { 
+                        string smallest = dict[j];
+                        int smallIndex = j;
+                        for (int i = j+1; i < dict.Length; i++)
+                        { 
+                            int comp = String.Compare(smallest, dict[i]);                                               
+                            if (comp > 0)
+                            {
+                                Console.WriteLine("'{0}' > '{1}'", smallest, dict[i]);
+                                smallest = dict[i];
+                                smallIndex = i;
+                            }
+                        }
+                        string save = dict[j];
+                        dict[j] = smallest;
+                        dict[smallIndex] = save;
+                    }
+                    Console.WriteLine("Sorted!");
                 }
             }//done and done
             while (command != "sluta");
